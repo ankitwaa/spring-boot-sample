@@ -28,7 +28,15 @@ public class ControllerTest2 {
                 get("/root/hello/5").
                 accept(MediaType.APPLICATION_JSON)).
                 andExpect(MockMvcResultMatchers.content().string(Matchers.containsString("Ankit")));
+    }
 
+    @Test
+    public void initTest() throws Exception {
+        webMvcTest.perform(MockMvcRequestBuilders.
+                get("/root/hello/5"))
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.header().string("Content-Type", "application/json;charset=UTF-8"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.welcome").value("Welcome Ankit!"));
     }
 
 
