@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.controller.json.Hello;
+import com.example.demo.controller.json.Parent;
 import com.example.demo.exception.ServiceException;
 import com.example.demo.service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
 
@@ -38,6 +40,12 @@ public class ApplicationController {
         Hello hello = new Hello();
         hello.setWelcome("Welcome Ankit!");
         return hello;
+    }
+
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @PostMapping("/root/post")
+    public Parent postParent(@RequestBody @Valid Parent parent){
+        return parent;
     }
 
 
