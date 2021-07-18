@@ -29,7 +29,7 @@ import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class ControllerTestUserMockBeanRepoMocking {
+public class DataJpaTestSample {
 
     @org.springframework.boot.test.context.TestConfiguration
     static class TestConfiguration{
